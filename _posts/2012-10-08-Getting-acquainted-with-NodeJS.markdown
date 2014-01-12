@@ -20,7 +20,7 @@ I started to look around for ways to solve this, and I learned the existence of 
 
 In Sublime Text 2, with the nodejs package installed, you execute a script using the Alt-R shortcut. I’m aware that there’s also Alt-D to execute the script in debug mode, but I need to find out how to use this mode. More on that in another post maybe …
 
-![Start NodeJS in debugging mode](/img/starting-node-with-debugger.png)
+![Start NodeJS in debugging mode](/img/start-node-with-debugger.png)
 
 ![Starting up node-inspector](/img/starting-up-node-inspector.png)
 
