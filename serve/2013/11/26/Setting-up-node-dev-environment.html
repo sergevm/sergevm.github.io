@@ -45,11 +45,11 @@
 				<h5>26 November 2013</h5>
 				<h2 class="content">Setting Up Node Dev Environment</h2>
 				<section>
-					<p>It&#8217;s been more than a year ago since I took a stab at <a href='http://nodejs.org'>Node.js</a>. At the time, I was looking into <a href='https://github.com/node-inspector/node-inspector'>node-inspector</a> for the debugging of node.js applications. I didn&#8217;t pay much attention to setting up a dev environment for node applications, as I was focusing on learning more about Javascript.</p>
+					<p>It’s been more than a year ago since I took a stab at <a href="http://nodejs.org">Node.js</a>. At the time, I was looking into <a href="https://github.com/node-inspector/node-inspector">node-inspector</a> for the debugging of node.js applications. I didn’t pay much attention to setting up a dev environment for node applications, as I was focusing on learning more about Javascript.</p>
 
-<p>Today things are different. During the weekend, I learned some of the basics of node development with <a href='http://expressjs.com/'>Express</a>, <a href='http://jade-lang.com/'>Jade</a> and <a href='http://learnboost.github.io/stylus/'>Stylus</a>. And I like it. I guess no one can deny that using the same language over client and server-side seems very attractive. Also, I have to admit that one of the compelling elements is that it is no Windows specific development, i.e. the daily development I do to gain a living. I like to expand my horizon from time to time.</p>
+<p>Today things are different. During the weekend, I learned some of the basics of node development with <a href="http://expressjs.com/">Express</a>, <a href="http://jade-lang.com/">Jade</a> and <a href="http://learnboost.github.io/stylus/">Stylus</a>. And I like it. I guess no one can deny that using the same language over client and server-side seems very attractive. Also, I have to admit that one of the compelling elements is that it is no Windows specific development, i.e. the daily development I do to gain a living. I like to expand my horizon from time to time. </p>
 
-<p>I guess my appetite for digging into node is triggered by <a href='http://codeofrob.com/entries/grunt+browserify+npm+application=success.html'>Rob Ashton&#8217;s series</a> on how he gets started on a node development project, and while I&#8217;m writing this, Rob Conery has started a <a href='http://www.wekeroad.com/tags/minty/'>series</a> on the way he sees nodejs development. Nice timing. Thanks to both of these guys for the extremely useful hints, tips and tricks. Especially Rob Ashton&#8217;s post was very inspiring for the setup I describe here, as will be obvious from my notes here.</p>
+<p>I guess my appetite for digging into node is triggered by <a href="http://codeofrob.com/entries/grunt+browserify+npm+application=success.html">Rob Ashton’s series</a> on how he gets started on a node development project, and while I’m writing this, Rob Conery has started a <a href="http://www.wekeroad.com/tags/minty/">series</a> on the way he sees nodejs development. Nice timing. Thanks to both of these guys for the extremely useful hints, tips and tricks. Especially Rob Ashton’s post was very inspiring for the setup I describe here, as will be obvious from my notes here.</p>
 
 <p>Of course, I still have to find out how well things go when moving beyond the Hello world-ish applications I have seen this weekend. But the modular style that is part of the node DNA is a kind of reassuring at the moment. What I should do (note my careful words :-)) is start developing an application in node that forces me to think about the structure I think a node application should obey to.</p>
 
@@ -58,73 +58,72 @@
 <p>So these are the tools that I ran into:</p>
 
 <ul>
-<li><a href='http://expressjs.com/'>express</a></li>
-
-<li><a href='http://jade-lang.com/'>jade</a></li>
-
-<li><a href='http://learnboost.github.io/stylus/'>stylus</a></li>
-
-<li><a href='http://browserify.org/'>browserify</a></li>
-
-<li><a href='gruntjs.com'>grunt</a></li>
-
-<li><a href='https://npmjs.org/package/grunt-browserify'>grunt-browserify</a></li>
+  <li><a href="http://expressjs.com/">express</a></li>
+  <li><a href="http://jade-lang.com/">jade</a></li>
+  <li><a href="http://learnboost.github.io/stylus/">stylus</a></li>
+  <li><a href="http://browserify.org/">browserify</a></li>
+  <li><a href="gruntjs.com">grunt</a></li>
+  <li><a href="https://npmjs.org/package/grunt-browserify">grunt-browserify</a></li>
 </ul>
 
-<p>By the way, as I&#8217;m setting up the node environment in OSX, I had to look for a blog editor on OSX as well. It seems there&#8217;s no excellent editor on this OS, I&#8217;m writing this with <a href='http://www.red-sweater.com/marsedit/'>MarsEdit</a>, which offers a mediocre experience when compared to <a href='http://en.wikipedia.org/wiki/Windows_Live_Writer'>Windows Live Writer</a>.</p>
+<p>By the way, as I’m setting up the node environment in OSX, I had to look for a blog editor on OSX as well. It seems there’s no excellent editor on this OS, I’m writing this with <a href="http://www.red-sweater.com/marsedit/">MarsEdit</a>, which offers a mediocre experience when compared to <a href="http://en.wikipedia.org/wiki/Windows_Live_Writer">Windows Live Writer</a>.</p>
 
-<p>Anyhow, I&#8217;m going to start developing a small project that will never be completed, and to underline this fact, I&#8217;ll go for the stereotypical blog application. Underneath you find a log on how I got started.</p>
+<p>Anyhow, I’m going to start developing a small project that will never be completed, and to underline this fact, I’ll go for the stereotypical blog application. Underneath you find a log on how I got started.</p>
 
 <pre><code>express blog
 cd blog
 npm install express --save-dev
 sudo npm install -g grunt-cli
 npm install grunt --save-dev
-cp ~/.jshintrc .jshintrc</code></pre>
+cp ~/.jshintrc .jshintrc turn on jshint options for node, remove the indentation rule in the copied .jshintrc
+npm install stylus --save-dev
+npm install jade --save-dev
+npm install grunt-contrib-watch --save-dev
+npm install -g nodemon
+npm install grunt-concurrent --save-dev After these dependencies are installed, we need to add some configuration. First of all, grunt itself uses a GruntFile.js file, which is a module that exports a function that looks like this in a first basic form:
 
-<p>turn on jshint options for node, remove the indentation rule in the copied .jshintrc npm install stylus &#8211;save-dev npm install jade &#8211;save-dev npm install grunt-contrib-watch &#8211;save-dev npm install -g nodemon npm install grunt-concurrent &#8211;save-dev After these dependencies are installed, we need to add some configuration. First of all, grunt itself uses a GruntFile.js file, which is a module that exports a function that looks like this in a first basic form:</p>
-
-<pre><code>&quot;use strict&quot;;
-
+"use strict";
+ 
 module.exports = function(grunt) {
     grunt.initConfig({
-        pkg: grunt.file.readJSON(&#39;package.json&#39;)
+        pkg: grunt.file.readJSON('package.json')
     });
-};</code></pre>
+};
+</code></pre>
 
-<p>But we installed a bunch of other packages, which I believe will be extremely useful when actually starting developing (as opposed to all the configuration stuff). In full fledged form, this is what my GruntFile.js looks like for the moment:</p>
+<p>But we installed a bunch of  other packages, which I believe will be extremely useful when actually starting developing (as opposed to all the configuration stuff). In full fledged form, this is what my GruntFile.js looks like for the moment:</p>
 
-<pre><code>&quot;use strict&quot;;
-
+<pre><code>"use strict";
+ 
 module.exports = function(grunt) {
     grunt.initConfig({
-        &#39;pkg&#39;: grunt.file.readJSON(&#39;package.json&#39;),
+        'pkg': grunt.file.readJSON('package.json'),
         browserify: {
-            &#39;public/app.js&#39;: [&#39;client/app.js&#39;]
+            'public/app.js': ['client/app.js']
         },
         watch: {
-                    files: [&#39;client/**/*.js&#39;],
-                    tasks: [&#39;browserify&#39;]
+                    files: ['client/**/*.js'],
+                    tasks: ['browserify']
                },
         nodemon: {
             dev: {}
         },
         concurrent: {
             dev: {
-                tasks: [&#39;nodemon&#39;, &#39;watch&#39;],
+                tasks: ['nodemon', 'watch'],
                 options: {
                 logConcurrentOutput: true
                 }
             }
         }
     });    
-    grunt.loadNpmTasks(&#39;grunt-browserify&#39;);
-    grunt.loadNpmTasks(&#39;grunt-contrib-watch&#39;);
-    grunt.loadNpmTasks(&#39;grunt-nodemon&#39;);
-    grunt.loadNpmTasks(&#39;grunt-concurrent&#39;);
-};</code></pre>
+    grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-nodemon');
+    grunt.loadNpmTasks('grunt-concurrent');
+}; [Grunt-concurrent](https://github.com/sindresorhus/grunt-concurrent) allows for multiple tasks to run concurrently, in my case here both the services offered by [grunt-nodemon](https://github.com/ChrisWren/grunt-nodemon) (restarting the server upon file changes) and [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch), which monitors app.js in the client folder, and triggers grunt-browserify when the file is changed (generate a client-side javascript file from server-side node modules). More on the latter is possibly coming in a future post. So that's the setup I am going to start with. 
+</code></pre>
 
-<p><a href='https://github.com/sindresorhus/grunt-concurrent'>Grunt-concurrent</a> allows for multiple tasks to run concurrently, in my case here both the services offered by <a href='https://github.com/ChrisWren/grunt-nodemon'>grunt-nodemon</a> (restarting the server upon file changes) and <a href='https://github.com/gruntjs/grunt-contrib-watch'>grunt-contrib-watch</a>, which monitors app.js in the client folder, and triggers grunt-browserify when the file is changed (generate a client-side javascript file from server-side node modules). More on the latter is possibly coming in a future post. So that&#8217;s the setup I am going to start with.</p>
 					<hr>
                     <div id="disqus_thread"></div>
                         <script type="text/javascript">

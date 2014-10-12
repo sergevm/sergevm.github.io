@@ -45,48 +45,45 @@
 				<h5>24 December 2012</h5>
 				<h2 class="content">Integration testing with CasperJS</h2>
 				<section>
-					<p>Inspired by a tweet by <a href='http://github.com/tojans'>@ToJans</a>, I’ve started playing around with <a href='http://casperjs.org'>CasperJS</a>, which is, I quote,</p>
-
-<blockquote>
-<blockquote>
-<p>an open source navigation scripting &amp; testing utility written in Javascript and based on PhantomJS — the scriptable headless WebKit engine.</p>
-</blockquote>
-</blockquote>
+					
+<p>Inspired by a tweet by <a href="http://github.com/tojans">@ToJans</a>, I’ve started playing around with <a href="http://casperjs.org">CasperJS</a>, which is, I quote, 
+»an open source navigation scripting &amp; testing utility written in Javascript and based on PhantomJS — the scriptable headless WebKit engine. </p>
 
 <p>In brief, PhantomJS offers you a Javascript API that allows you to approach web pages, navigate the DOM, etc. without actually firing up a browser UI. On top of that, CasperJS offers an API that helps you with setting up navigation scenario’s, filling forms, follow links, etc.. For a far more accurate and complete definition of the capabilities, you should check the projects themselves.</p>
 
-<p>So you need to install <a href='http://phantomjs.org/'>PhantomJS</a> and <a href='http://phantomjs.org/'>CasperJS</a>, both offer downloadable packages that include executables. All that’s left is adding the libraries to your path variable, and you are done.</p>
+<p>So you need to install <a href="http://phantomjs.org/">PhantomJS</a> and <a href="http://phantomjs.org/">CasperJS</a>, both offer downloadable packages that include executables. All that’s left is adding the libraries to your path variable, and you are done.</p>
 
-<p>In my scenario, I have a <a href='http://www.dnnsoftware.com/'>Dotnetnuke</a> site set up, and added an entry to the host file, pointing the <code>dnndev domain</code> to my <code>localhost</code>. Now, what you’ll see is that because we use Dotnetnuke here, and thus classic ASP.NET, we don’t have very nice looking names on the elements. In other environments, you’ll see much less ugly testing code.</p>
+<p>In my scenario, I have a <a href="http://www.dnnsoftware.com/">Dotnetnuke</a> site set up, and added an entry to the host file, pointing the <code>dnndev domain</code> to my <code>localhost</code>. Now, what you’ll see is that because we use Dotnetnuke here, and thus classic ASP.NET, we don’t have very nice looking names on the elements. In other environments, you’ll see much less ugly testing code.</p>
 
 <p>Anyway, the simple first scenario that I’m showing here, is logging into the Dotnetnuke site, and navigating to a page that is only reachable for authenticated users. The code goes like this:</p>
 
-<pre><code>var casper = require(&quot;casper&quot;).create();
+<pre><code>var casper = require("casper").create();
  
-var getStartedUrl = &quot;http://dnndev/GettingStarted.aspx&quot;, authenticatedPage = &quot;http://dnndev/AuthenticatedUserPage.aspx&quot;;
+var getStartedUrl = "http://dnndev/GettingStarted.aspx", authenticatedPage = "http://dnndev/AuthenticatedUserPage.aspx";
  
-casper.start(&#39;http://dnndev/login.aspx&#39;, function() {
-    this.test.assertHttpStatus(200, &quot;The website is up and running&quot;);
+casper.start('http://dnndev/login.aspx', function() {
+    this.test.assertHttpStatus(200, "The website is up and running");
 });
  
-casper.waitForSelector(&quot;form#Form&quot;, function() {
-    this.fill(&quot;form#Form&quot;, {&quot;dnn$ctr$Login$Login_DNN$txtUsername&quot; : &quot;user&quot;});
-    this.fill(&quot;form#Form&quot;, {&quot;dnn$ctr$Login$Login_DNN$txtPassword&quot; : &quot;pwd&quot;});
+casper.waitForSelector("form#Form", function() {
+    this.fill("form#Form", {"dnn$ctr$Login$Login_DNN$txtUsername" : "user"});
+    this.fill("form#Form", {"dnn$ctr$Login$Login_DNN$txtPassword" : "pwd"});
 });
  
-casper.thenClick(&quot;#dnn_ctr_Login_Login_DNN_cmdLogin&quot;, function() {
-    this.test.assertEquals(this.getCurrentUrl(),getStartedUrl, &quot;We have successfully logged in ...&quot;);
+casper.thenClick("#dnn_ctr_Login_Login_DNN_cmdLogin", function() {
+    this.test.assertEquals(this.getCurrentUrl(),getStartedUrl, "We have successfully logged in ...");
 });
  
-casper.thenOpen(&#39;http://dnndev/AuthenticatedUserPage.aspx&#39;, function(){
-    this.test.assertEquals(this.getCurrentUrl(), authenticatedPage, &quot;Navigated to the target page ...&quot;);
+casper.thenOpen('http://dnndev/AuthenticatedUserPage.aspx', function(){
+    this.test.assertEquals(this.getCurrentUrl(), authenticatedPage, "Navigated to the target page ...");
 });
  
-casper.run(function() {this.test.renderResults(true);});</code></pre>
+casper.run(function() {this.test.renderResults(true);}); A nd that’s all there is to it … We require Casper, and navigate to the login page. We wait for the form, and when it is present, we simply fill some fields on it, using the name of the elements. I did try using the `fill()` function where you ask for submission of the form, but that didn’t seem to work very well. Therefore, I switched to the 'thenClick()' function, using the name of the login link. Finally, after logging in, we open the page that requires the user to be authenticated.
+</code></pre>
 
-<p>A nd that’s all there is to it … We require Casper, and navigate to the login page. We wait for the form, and when it is present, we simply fill some fields on it, using the name of the elements. I did try using the <code>fill()</code> function where you ask for submission of the form, but that didn’t seem to work very well. Therefore, I switched to the &#8216;thenClick()&#8217; function, using the name of the login link. Finally, after logging in, we open the page that requires the user to be authenticated.</p>
+<p>A small side note, is that – unfortunately – coloring of the test results is not supported on Windows. I believe that there are some solutions suggested, but these involve installation of dll’s that I don’t know the trustworthiness of.
+Maybe the next couple of days, I’m going to play some more, and see how things go in somewhat more involved scenarios. In that case, I may follow up on this short intro post.</p>
 
-<p>A small side note, is that – unfortunately – coloring of the test results is not supported on Windows. I believe that there are some solutions suggested, but these involve installation of dll’s that I don’t know the trustworthiness of. Maybe the next couple of days, I’m going to play some more, and see how things go in somewhat more involved scenarios. In that case, I may follow up on this short intro post.</p>
 					<hr>
                     <div id="disqus_thread"></div>
                         <script type="text/javascript">

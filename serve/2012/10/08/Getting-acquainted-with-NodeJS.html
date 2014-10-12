@@ -45,37 +45,34 @@
 				<h5>08 October 2012</h5>
 				<h2 class="content">Getting acquainted with NodeJS</h2>
 				<section>
-					<p>Once again, I have set a personal goal to study the foundations of javascript. It goes without saying that I have done my share of DOM element manipulation, be-it based on some raw <code>getElementById()</code> navigation in the past, be-it with invaluable libraries such as <a href='http://www.jquery.com'>jQuery</a> in more recent years. However, that kind of javascript barely reveals the real power of the language (which in that context typically is ‘hidden’ by the libraries you use) with features such as prototypal inheritance etc., and I believe the time is right to learn about them. After all, javascript is gaining importance on the client-side as well as on the server side, proven by the rapidly growing popularity of <a href='http://nodejs.org'>NodeJS</a>, the emergence of lots of useful client-side libraries such as <a href='http://jquery.com'>jQuery</a>, <a href='http://backbonejs.org'>Backbone</a>, <a href='http://knockoutjs.org'>KnockoutJS</a> to name a few, and more recently the introduction of <a href='http://www.typescriptlang.org/'>TypeScript</a> by Microsoft.</p>
+					<p>Once again, I have set a personal goal to study the foundations of javascript. It goes without saying that I have done my share of  DOM element manipulation, be-it based on some raw <code>getElementById()</code> navigation in the past, be-it with invaluable libraries such as <a href="http://www.jquery.com">jQuery</a> in more recent years. However, that kind of javascript barely reveals the real power of the language (which in that context typically is ‘hidden’ by the libraries you use) with features such as prototypal inheritance etc., and I believe the time is right to learn about them. After all, javascript is gaining importance on the client-side as well as on the server side, proven by  the rapidly growing popularity of <a href="http://nodejs.org">NodeJS</a>, the emergence of lots of useful client-side libraries such as <a href="http://jquery.com">jQuery</a>, <a href="http://backbonejs.org">Backbone</a>, <a href="http://knockoutjs.org">KnockoutJS</a> to name a few, and more recently the introduction of <a href="http://www.typescriptlang.org/">TypeScript</a> by Microsoft.</p>
 
-<p>I’m one of those old-fashioned guys who like reading books on technical topics I want to get to know. Of course I’m aware of the fact that some Google foo will lead you to plenty of resources, but I still prefer the structural learning that good books seems to offer. To learn the foundations of javascript, I have read <a href='http://shop.oreilly.com/product/9780596517748.do'>Javascript: The Good Parts</a>, and <a href='http://shop.oreilly.com/product/9780596806767.do'>Javascript Patterns</a>, two books I certainly recommend.</p>
+<p>I’m one of those old-fashioned guys who like reading books on technical topics I want to get to know. Of course I’m aware of the fact that some Google foo will lead you to plenty of resources, but I still prefer the structural learning that good books seems to offer. To learn the foundations of javascript, I have read <a href="http://shop.oreilly.com/product/9780596517748.do">Javascript: The Good Parts</a>, and <a href="http://shop.oreilly.com/product/9780596806767.do">Javascript Patterns</a>, two books I certainly recommend.</p>
 
-<p>Anyway, after reading up on a topic, I need to get my hands dirty fiddling around some code. And this time, I’m taking the opportunity to get acquainted to <a href='http://www.sublimetext.com/'>Sublime Text 2</a> for editing .js files. Because I’m studying the basics, I’m writing and executing lots of scripts that do not involve DOM manipulation. In Sublime Text 2, you can use the nodejs package to execute code, and e.g. write some stuff to the console. All fine and dandy, until you run into a problem and need to debug. As there’s no html page that runs in the browser, you cannot simply use the well-known and excellent browser developer tools.</p>
+<p>Anyway, after reading up on a topic, I need to get my hands dirty fiddling around some code. And this time, I’m taking the opportunity to get acquainted to <a href="http://www.sublimetext.com/">Sublime Text 2</a> for editing .js files. Because I’m studying the basics, I’m writing and executing lots of scripts that do not involve DOM manipulation. In Sublime Text 2, you can use the nodejs package to execute code, and e.g. write some stuff to the console. All fine and dandy, until you run into a problem and need to debug. As there’s no html page that runs in the browser, you cannot simply use the well-known and excellent browser developer tools.</p>
 
-<p>I started to look around for ways to solve this, and I learned the existence of <a href='https://github.com/node-inspector/node-inspector'>node-inspector</a>. This is how I got it working on a Windows 7:</p>
+<p>I started to look around for ways to solve this, and I learned the existence of <a href="https://github.com/node-inspector/node-inspector">node-inspector</a>. This is how I got it working on a Windows 7:</p>
 
 <ul>
-<li>You should have node installed.</li>
-
-<li>Install node inspector with npm (node package manager): <code>npm install –g node-inspector</code></li>
-
-<li>Navigate to the folder containing the script you want to debug, say test.js. Start the script, but let the debugger break on the first line: <code>node –debug-brk test.js</code></li>
-
-<li>You get a notification that the debugger is listening on port 5858</li>
-
-<li>You can check this by navigating to http://localhost:5858</li>
-
-<li>In another console, start node-inspector. You get a message saying that you should navigate to http://localhost:8080/debug?port=5858 to start debugging … and bingo!</li>
+  <li>You should have node installed.</li>
+  <li>Install node inspector with npm (node package manager): <code>npm install –g node-inspector</code></li>
+  <li>Navigate to the folder containing the script you want to debug, say test.js. Start the script, but let the debugger break on the first line: <code>node –debug-brk test.js</code></li>
+  <li>You get a notification that the debugger is listening on port 5858</li>
+  <li>You can check this by navigating to http://localhost:5858</li>
+  <li>In another console, start node-inspector. You get a message saying that you should navigate to http://localhost:8080/debug?port=5858 to start debugging … and bingo!</li>
 </ul>
 
 <p>In Sublime Text 2, with the nodejs package installed, you execute a script using the Alt-R shortcut. I’m aware that there’s also Alt-D to execute the script in debug mode, but I need to find out how to use this mode. More on that in another post maybe …</p>
 
-<p><img alt='Start NodeJS in debugging mode' src='/img/start-node-with-debugger.png' /></p>
+<p><img src="/img/start-node-with-debugger.png" alt="Start NodeJS in debugging mode" /></p>
 
-<p><img alt='Starting up node-inspector' src='/img/starting-up-node-inspector.png' /></p>
+<p><img src="/img/starting-up-node-inspector.png" alt="Starting up node-inspector" /></p>
 
-<p><img alt='Node debugging is activated' src='/img/node-debugging-activated.png' /></p>
+<p><img src="/img/node-debugging-activated.png" alt="Node debugging is activated" /></p>
 
-<p><img alt='Debugging NodeJS with node-inspector in action' src='/img/debugging-with-nodejs-in-action.png' /></p>
+<p><img src="/img/debugging-with-nodejs-in-action.png" alt="Debugging NodeJS with node-inspector in action" /></p>
+
+
 					<hr>
                     <div id="disqus_thread"></div>
                         <script type="text/javascript">

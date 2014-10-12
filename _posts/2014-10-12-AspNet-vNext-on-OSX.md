@@ -20,15 +20,14 @@ And yes, I got things working this morning without much of a hassle. I just want
   * I made the assumption that kpm would somehow invoke kvm to install a version that is not yet present on my machine (in *~/.kre/packages*), but apparently this is not the case, as shown further on when I talk about the samples.
   * To find out where the repository for your dependencies can be found, kpm relies on the presence of a *Nuget.Config* file in the root of your application. At the time of writing, this is what the file looks like:
 
-```xml
+~~~~
 <configuration>
-<packageSources>
-<add key="AspNetVNext" value="https://www.myget.org/F/aspnetmaster/api/v2" />
-<add key="NuGet.org" value="https://nuget.org/api/v2/" />
-</packageSources>
+  <packageSources>
+    <add key="AspNetVNext" value="https://www.myget.org/F/aspnetmaster/api/v2" />
+    <add key="NuGet.org" value="https://nuget.org/api/v2/" />
+  </packageSources>
 </configuration>
-```
-
+~~~~
 ### Samples
 
 The repository can be found [here](https://github.com/aspnet/home). While running the console went smoothly, running the HelloMvc sample did not, indicating that the Hosting dll could not be found. To resolve this, I had to do a couple of things:

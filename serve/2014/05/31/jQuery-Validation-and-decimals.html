@@ -45,18 +45,21 @@
 				<h5>31 May 2014</h5>
 				<h2 class="content">Jquery Validation And Decimals</h2>
 				<section>
-					<p>I&#8217;m looking into ASP.NET MVC 5 now, as I haven&#8217;t worked with it since the 2 version, and I want to get up to date again.</p>
+					<p>I’m looking into ASP.NET MVC 5 now, as I haven’t worked with it since the 2 version, and I want to get up to date again.</p>
 
-<p>While I was implementing a view that includes validation of decimals, I ran into trouble once I enabled client side validation (it is enabled by default, but I had not included the jQuery Validation scripts yet). The issue stems from the fact that I live in a region where the decimal separator is a comma instead of a period. The default implementation of jQuery Validation apparently is not handling this well, so I had to look for a solution. And the allmighty Google supplied me with <a href='http://www.stevendewaele.be/?p=183'>this solution</a>, which I wanted to reference here for future usage. I&#8217;ll briefly repeat here in case the link would be disappearing (I assume this is ok for <a href='http://twitter.com/StevenDeWaele'>Steven</a>), as long as I honestly reference his post):</p>
+<p>While I was implementing a view that includes validation of decimals, I ran into trouble once I enabled client side validation (it is enabled by default, but I had not included the jQuery Validation scripts yet). The issue stems from the fact that I live in a region where the decimal separator is a comma instead of a period. The default implementation of jQuery Validation apparently is not handling this well, so I had to look for a solution. And the allmighty Google supplied me with <a href="http://www.stevendewaele.be/?p=183">this solution</a>, which I wanted to reference here for future usage. I’ll briefly repeat here in case the link would be disappearing (I assume this is ok for <a href="http://twitter.com/StevenDeWaele">Steven</a>), as long as I honestly reference his post):</p>
 
 <pre><code>$.validator.methods.range = function (value, element, param) {
-	var globalizedValue = value.replace(&quot;,&quot;, &quot;.&quot;);
+	var globalizedValue = value.replace(",", ".");
 	return this.optional(element) || (globalizedValue &gt;= param[0] &amp;&amp; globalizedValue &lt;= param[1]);
 } 
 
 $.validator.methods.number = function (value, element) {
 	return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
-}</code></pre>
+}
+</code></pre>
+
+
 					<hr>
                     <div id="disqus_thread"></div>
                         <script type="text/javascript">
