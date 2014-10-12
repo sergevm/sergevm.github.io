@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title> Getting acquainted with NodeJS -  Domain-Driven</title>
+		<!-- For responsive site
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="author" href="/humans.txt">
+		<meta name="description" content="Description Goes Here">
+		<link rel="stylesheet" href="/css/style.css">
+		<!--[if IE 7]>
+			<html class="ie7"> 
+			<link rel="stylesheet" type="text/css" href="/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!--[if IE 8]><html class="ie8"> <![endif]-->		
+	    <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="ico/favicon.png">	    
+	</head>
+	<body>
+	<!-- Header
+	    ================================================== -->
+	<header>
+
+	</header>
+
+	<div class="top-strip"></div>
+<main class="content">
+    <section class="container">
+    	<div class="row-fluid">
+    		<article class="home-icon">
+				<a href="/">
+					<i class="icon-home"></i> 
+				</a>
+			</article>
+			<article class="post">
+				<h5>08 October 2012</h5>
+				<h2 class="content">Getting acquainted with NodeJS</h2>
+				<section>
+					<p>Once again, I have set a personal goal to study the foundations of javascript. It goes without saying that I have done my share of DOM element manipulation, be-it based on some raw <code>getElementById()</code> navigation in the past, be-it with invaluable libraries such as <a href='http://www.jquery.com'>jQuery</a> in more recent years. However, that kind of javascript barely reveals the real power of the language (which in that context typically is ‘hidden’ by the libraries you use) with features such as prototypal inheritance etc., and I believe the time is right to learn about them. After all, javascript is gaining importance on the client-side as well as on the server side, proven by the rapidly growing popularity of <a href='http://nodejs.org'>NodeJS</a>, the emergence of lots of useful client-side libraries such as <a href='http://jquery.com'>jQuery</a>, <a href='http://backbonejs.org'>Backbone</a>, <a href='http://knockoutjs.org'>KnockoutJS</a> to name a few, and more recently the introduction of <a href='http://www.typescriptlang.org/'>TypeScript</a> by Microsoft.</p>
+
+<p>I’m one of those old-fashioned guys who like reading books on technical topics I want to get to know. Of course I’m aware of the fact that some Google foo will lead you to plenty of resources, but I still prefer the structural learning that good books seems to offer. To learn the foundations of javascript, I have read <a href='http://shop.oreilly.com/product/9780596517748.do'>Javascript: The Good Parts</a>, and <a href='http://shop.oreilly.com/product/9780596806767.do'>Javascript Patterns</a>, two books I certainly recommend.</p>
+
+<p>Anyway, after reading up on a topic, I need to get my hands dirty fiddling around some code. And this time, I’m taking the opportunity to get acquainted to <a href='http://www.sublimetext.com/'>Sublime Text 2</a> for editing .js files. Because I’m studying the basics, I’m writing and executing lots of scripts that do not involve DOM manipulation. In Sublime Text 2, you can use the nodejs package to execute code, and e.g. write some stuff to the console. All fine and dandy, until you run into a problem and need to debug. As there’s no html page that runs in the browser, you cannot simply use the well-known and excellent browser developer tools.</p>
+
+<p>I started to look around for ways to solve this, and I learned the existence of <a href='https://github.com/node-inspector/node-inspector'>node-inspector</a>. This is how I got it working on a Windows 7:</p>
+
+<ul>
+<li>You should have node installed.</li>
+
+<li>Install node inspector with npm (node package manager): <code>npm install –g node-inspector</code></li>
+
+<li>Navigate to the folder containing the script you want to debug, say test.js. Start the script, but let the debugger break on the first line: <code>node –debug-brk test.js</code></li>
+
+<li>You get a notification that the debugger is listening on port 5858</li>
+
+<li>You can check this by navigating to http://localhost:5858</li>
+
+<li>In another console, start node-inspector. You get a message saying that you should navigate to http://localhost:8080/debug?port=5858 to start debugging … and bingo!</li>
+</ul>
+
+<p>In Sublime Text 2, with the nodejs package installed, you execute a script using the Alt-R shortcut. I’m aware that there’s also Alt-D to execute the script in debug mode, but I need to find out how to use this mode. More on that in another post maybe …</p>
+
+<p><img alt='Start NodeJS in debugging mode' src='/img/start-node-with-debugger.png' /></p>
+
+<p><img alt='Starting up node-inspector' src='/img/starting-up-node-inspector.png' /></p>
+
+<p><img alt='Node debugging is activated' src='/img/node-debugging-activated.png' /></p>
+
+<p><img alt='Debugging NodeJS with node-inspector in action' src='/img/debugging-with-nodejs-in-action.png' /></p>
+					<hr>
+                    <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                        var disqus_shortname = 'domain-driven'; // required: replace example with your forum shortname
+
+                        /* * * DON'T EDIT BELOW THIS LINE * * */
+                        (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                     </script>
+                     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+				</section>
+				<section style="font-weight:bold; margin-bottom: 2em;">
+					
+						 
+							<a rel="next" style="float:right" class="a-hover"href="/2012/10/12/Jasmine-support-in-SublimeText.html">Jasmine in Sublime Text <i class=" icon-double-angle-right"></i></a>
+					
+				</section>
+			</article>
+		</div>
+	</section>
+</main>
+
+
+	<footer>
+		<div class="container">
+			<a href="http://domain-driven.net">Domain-Driven</a>
+		</div>
+	</footer>
+
+	<!-- Footer
+	    ================================================== -->
+
+	<!-- Javascripts 
+	    ================================================= -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/custom.js"></script>
+
+    <!-- Analytics
+    ================================================== -->
+    <script>
+		// analytics code
+    </script>	
+	</body>
+</html>

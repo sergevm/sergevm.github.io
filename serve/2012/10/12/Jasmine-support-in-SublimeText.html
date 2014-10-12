@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title> Jasmine in Sublime Text -  Domain-Driven</title>
+		<!-- For responsive site
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="author" href="/humans.txt">
+		<meta name="description" content="Description Goes Here">
+		<link rel="stylesheet" href="/css/style.css">
+		<!--[if IE 7]>
+			<html class="ie7"> 
+			<link rel="stylesheet" type="text/css" href="/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!--[if IE 8]><html class="ie8"> <![endif]-->		
+	    <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="ico/favicon.png">	    
+	</head>
+	<body>
+	<!-- Header
+	    ================================================== -->
+	<header>
+
+	</header>
+
+	<div class="top-strip"></div>
+<main class="content">
+    <section class="container">
+    	<div class="row-fluid">
+    		<article class="home-icon">
+				<a href="/">
+					<i class="icon-home"></i> 
+				</a>
+			</article>
+			<article class="post">
+				<h5>12 October 2012</h5>
+				<h2 class="content">Jasmine in Sublime Text</h2>
+				<section>
+					<p>I’m learning Javascript, as I’ve told before. And I’m using <a href='http://www.sublimetext.com/'>Sublime Text 2</a>, because it is lightweight in the first place, and – to be honest - the hype surrounding it is making me curious. It turns out to be blazing fast, and it is quite easily extensible via the packages and the customizable build system.</p>
+
+<p>While coding a bit to get the hang of some javascript patterns, I thought is would be nice to try if I could easily use <a href='http://pivotal.github.io/jasmine/'>Jasmine</a> to test that code from within Sublime Text. It turns out it is not so hard to do, although there are some limitations. This is how I did it:</p>
+
+<p>The first step is to install <a href='https://github.com/mhevery/jasmine-node'>jasmine-node</a> via node package manager: <code>npm install –g jasmine-node</code>.</p>
+
+<p>This makes the package globally available. For instance, you can simply run your tests from the Windows command prompt:</p>
+
+<p><img alt='Jasmine-node via command prompt' src='/img/jasmine-node-via-command-prompt.png' /></p>
+
+<p>As the next step, I added a custom build system to Sublime Text. It’s not complicated, and maybe a little fragile, but it works:</p>
+
+<p><img alt='Sublime Text build system for jasmine-node' src='/img/sublime-text-build-system-for-jasmine-node.png' /></p>
+
+<p>I call it a bit fragile, because of the “file_regex” setting. Basically, with this setting you identify the file and line number that the editor should navigate to when pressing F4. It is not required in the build system, but it’s quite helpful.</p>
+
+<p>And this is the result:</p>
+
+<p><img alt='jasmine-node output - no failures' src='jasmine-node-output-no-failures.png' /></p>
+
+<p>When the test fails, pressing <code>F4</code> takes me to the relevant line:</p>
+
+<p><img alt='jasmine-node output - with failures' src='/img/jasmine-node-output-with-failures.png' /></p>
+
+<p>I think it is quite nice.</p>
+
+<p>The limitation I talked about earlier involves the usage of colors in the test output. As you may have notices in the custom build system, I specified the –noColor option. It turns out that the jasmine-node reporter writes color codes that are not rendered as color but as literals. But I’m ok with that for now.</p>
+					<hr>
+                    <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                        var disqus_shortname = 'domain-driven'; // required: replace example with your forum shortname
+
+                        /* * * DON'T EDIT BELOW THIS LINE * * */
+                        (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                     </script>
+                     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+				</section>
+				<section style="font-weight:bold; margin-bottom: 2em;">
+					 
+							<a rel="prev" class="a-hover" href="/2012/10/08/Getting-acquainted-with-NodeJS.html"><i class="icon-double-angle-left"></i> Getting acquainted with NodeJS</a>
+						
+						 
+							<a rel="next" style="float:right" class="a-hover"href="/2012/12/24/Integration-testing-with-CasperJS.html">Integration testing with CasperJS <i class=" icon-double-angle-right"></i></a>
+					
+				</section>
+			</article>
+		</div>
+	</section>
+</main>
+
+
+	<footer>
+		<div class="container">
+			<a href="http://domain-driven.net">Domain-Driven</a>
+		</div>
+	</footer>
+
+	<!-- Footer
+	    ================================================== -->
+
+	<!-- Javascripts 
+	    ================================================= -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/custom.js"></script>
+
+    <!-- Analytics
+    ================================================== -->
+    <script>
+		// analytics code
+    </script>	
+	</body>
+</html>
