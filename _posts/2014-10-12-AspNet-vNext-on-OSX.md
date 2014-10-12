@@ -28,6 +28,7 @@ And yes, I got things working this morning without much of a hassle. I just want
   </packageSources>
 </configuration>
 ```
+
 ### Samples
 
 The repository can be found [here](https://github.com/aspnet/home). While running the console went smoothly, running the HelloMvc sample did not, indicating that the Hosting dll could not be found. To resolve this, I had to do a couple of things:
