@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: post
 ---
 
 The last couple of years, I have been working on a little Android development learning project. Well, in the end it has become a considerable code base, because I always enjoy working on a realistic feature set, even in this kind of setting (learning, that is). I have pushed the code to GitHub this evening, as I don't intend to work on it anymore (hey, I bought myself an iPhone a couple of months ago :-)). You find the unfinished code here.

@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: post
 ---
 Choices ... choices ....
 

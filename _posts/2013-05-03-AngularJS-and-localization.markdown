@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: post
 ---
 
 I’ve had the occasion the last couple of days to use [AngularJS](http://angularjs.org/) on my project. And although I’m not very experienced with it yet, I like what I’ve seen so far. Actually, I like it a lot. After fiddling around with it to get the screen flow right, and learning a ton in the process, I needed to address remaining details such as localization of the UI. I live in Belgium, and therefore unfortunately most web sites support multiple languages.

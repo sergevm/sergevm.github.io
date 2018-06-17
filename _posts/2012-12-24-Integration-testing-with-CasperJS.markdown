@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: post
 title: Integration testing with CasperJS
 ---
 [1]: http://casperjs.org

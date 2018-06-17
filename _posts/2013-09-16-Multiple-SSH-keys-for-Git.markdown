@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: post
 ---
 
 At work we are looking into moving to Git. I decided to generate a separate SSH key pair for my work environment, so not reusing the keys that I have been using for GitHub for example. First thing I bumped into was figuring out how to specify what key file to use in the work environment. This post is merely a reminder to myself.

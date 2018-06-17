@@ -1,6 +1,6 @@
 ---
 title: ASPNET.vNext on OSX
-layout: post_page
+layout: post
 ---
 A couple of months ago I made a first attempt to get [ASPNET.vNext](http://www.asp.net/vnext) working on my Mac. It didn't work out very well, and at the time I didn't feel like putting a lot of effort in it, in particular because my experiments with [OpenIDE](https://github.com/continuoustests/OpenIDE) gave me the impression that Mono on Mac was very unstable.
 

@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: post
 ---
 I'm looking into ASP.NET MVC 5 now, as I haven't worked with it since the 2 version, and I want to get up to date again.
 

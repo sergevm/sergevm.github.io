@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: post
 ---
 
 It's been more than a year ago since I took a stab at [Node.js](http://nodejs.org). At the time, I was looking into [node-inspector](https://github.com/node-inspector/node-inspector) for the debugging of node.js applications. I didn't pay much attention to setting up a dev environment for node applications, as I was focusing on learning more about Javascript.
